@@ -35,14 +35,14 @@ Upload `atlantic.ko` to your NAS via DSM File Station, then SSH in as root:
 
 ```bash
 mkdir -p /volume1/aqcnetconf
-cp /volume1/YourShare/atlantic.ko /volume1/aqcnetconf/atlantic_asus.ko
+cp /volume1/YourShare/atlantic.ko /volume1/aqcnetconf/atlantic.ko
 ```
 
 ### 2. Test it loads
 
 ```bash
 rmmod atlantic_v2 atlantic 2>/dev/null
-insmod /volume1/aqcnetconf/atlantic_asus.ko
+insmod /volume1/aqcnetconf/atlantic.ko
 dmesg | tail -15
 ```
 
@@ -59,7 +59,7 @@ confdir=/volume1/aqcnetconf
 case "$1" in
 start)
     rmmod atlantic_v2 atlantic 2>/dev/null
-    insmod $confdir/atlantic_asus.ko
+    insmod $confdir/atlantic.ko
     /etc/rc.network restart
     ;;
 esac
